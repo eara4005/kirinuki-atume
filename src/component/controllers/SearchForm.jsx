@@ -9,6 +9,7 @@ export default class SearchForm extends React.Component {
     state = {
         keyword: "",
         param: "relevance",
+        hako:"にじさんじ",
         setOpen: false,
     };
     
@@ -32,15 +33,37 @@ export default class SearchForm extends React.Component {
         this.setState({param: e.target.value});
     };
 
+    // hakoステートをselecetで指定した値に置き換え
+    handleChangehako = (e) => {
+        this.setState({hako: e.target.value});
+    };
+
     // 検索ボタン押したときの処理
     onSubmit = (e) => {
         e.preventDefault();
-        this.props.onSearchYoutube(this.state.keyword,this.state.param);
+        this.props.onSearchYoutube(this.state.keyword,this.state.hako,this.state.param);
     };
 
     render() {
         return (
             <form onSubmit={this.onSubmit}>  
+                <inputLabel style={{paddingRight: 30}}>ハコ　</inputLabel>
+                <Select
+                    style={{
+                        minWidth: 160,
+                        textAlign: 'left',
+                    }}
+                    onClose={this.handleClose}
+                    onOpen={this.handleOpen}
+                    onChange={this.handleChangehako}
+                    value={this.state.hako}
+                >
+                    <MenuItem value={"にじさんじ"}>にじさんじ</MenuItem>
+                    <MenuItem value={"ホロライブ"}>ホロライブ</MenuItem>
+                </Select>
+                    
+                <br/>
+
                 <inputLabel style={{paddingRight: 30}}>表示順</inputLabel>
                 <Select
                     style={{
@@ -56,8 +79,9 @@ export default class SearchForm extends React.Component {
                     <MenuItem value={"date"}>アップロード順</MenuItem>
                     <MenuItem value={"viewCount"}>再生回数が多い順</MenuItem>
                 </Select>
-                    
-                <br />
+
+                <br/>
+
                 <input
                     style={{height: '40px',fontSize: '16px',marginTop: 10}}
                     placeholder='見たいVtuberは？'

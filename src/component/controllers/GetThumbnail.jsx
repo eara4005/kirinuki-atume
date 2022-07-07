@@ -10,8 +10,8 @@ export default class GetThumbnail extends React.Component {
         videos: [],
     }
 
-    onSearchYoutube = (keyword,param) =>{
-        const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${keyword}+切り抜き&order=${param}&maxResults=10&key=${YOUTUBE_API_KEY}`;
+    onSearchYoutube = (keyword,hako,param) =>{
+        const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${hako}+${keyword}+切り抜き&order=${param}&maxResults=10&key=${YOUTUBE_API_KEY}`;
 
         axios
             .get(url)

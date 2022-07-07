@@ -53,7 +53,7 @@ const Youtube = (props) => {
                     type="ytplayer" 
                     width="300"
                     height="200"
-                    allowFullscreen='true'
+                    allowFullScreen='true'
                     src={url}
                     />
                 </VideoWrap>
