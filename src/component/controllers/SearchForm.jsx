@@ -60,6 +60,10 @@ export default class SearchForm extends React.Component {
                 >
                     <MenuItem value={"にじさんじ"}>にじさんじ</MenuItem>
                     <MenuItem value={"ホロライブ"}>ホロライブ</MenuItem>
+                    <MenuItem value={"774Inc"}>774 Inc.</MenuItem>
+                    <MenuItem value={".LIVE"}>.LIVE</MenuItem>
+                    <MenuItem value={"のりプロ"}>のりプロ</MenuItem>
+                    <MenuItem value={"ぷいすぽ"}>ぶいすぽっ！</MenuItem>
                 </Select>
                     
                 <br/>
