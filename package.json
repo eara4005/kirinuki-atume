@@ -19,17 +19,10 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-<<<<<<< HEAD
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "cross-env PUBLIC_URL=/kirinuki-atume react-scripts build",
-=======
-    "start": "node --max_old_space_size=2048 node_modules/.bin/react-scripts　start",
-    "build": "node --max_old_space_size=2048 node_modules/.bin/react-scripts build",
->>>>>>> 2e64aaed7e6c0456b975dd401a3013759fb755e4
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "cross-env PUBLIC_URL=/kirinuki-atume react-scripts build"
   },
   "eslintConfig": {
     "extends": [
