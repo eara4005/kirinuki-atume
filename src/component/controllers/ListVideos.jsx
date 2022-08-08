@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import CopyToClipBoard from 'react-copy-to-clipboard';
-import FileCopyIcon from '@material-ui/icons/FileCopy';
-import IconButton from '@material-ui/core/IconButton';
+import FileCopyIcon from '@mui/icons-material/FileCopy';
+import IconButton from '@mui/material/IconButton';
 import {
     FacebookShareButton,
     FacebookIcon,
@@ -12,7 +12,7 @@ import {
     EmailIcon,
 } from 'react-share';
 
-const Youtube = (props) => {
+const ListVideos = (props) => {
 
     const video = props.videos.map((video) => {
         const url = 'https://www.youtube.com/embed/' + video.id.videoId;
@@ -106,4 +106,4 @@ const Youtube = (props) => {
 
 }
 
-export default Youtube;
+export default ListVideos;
