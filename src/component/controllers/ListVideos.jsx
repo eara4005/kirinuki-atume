@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import CopyToClipBoard from 'react-copy-to-clipboard';
-import FileCopyIcon from '@mui/icons-material/FileCopy';
-import IconButton from '@mui/material/IconButton';
+import FileCopyIcon from '@material-ui/icons/FileCopy';
+import IconButton from '@material-ui/core/IconButton';
 import {
     FacebookShareButton,
     FacebookIcon,
