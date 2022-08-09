@@ -12,11 +12,17 @@ import {
     EmailIcon,
 } from 'react-share';
 
+
+// 取得したJSONをmap関数からid等の要素に分解 → iframeに表示させる関数コンポーネント
 const Youtube = (props) => {
 
+    // propsで渡された動画情報が含まれているJSONから特定の値だけ取り出す。→ 取得した動画分だけ繰り返し
     const video = props.videos.map((video) => {
+
+        // 取得した動画のIDを、youtube動画URLに変換
         const url = 'https://www.youtube.com/embed/' + video.id.videoId;
 
+        //div要素を定義
         const ModalWrap = styled.div`
             left: 0;
             right: 0;
@@ -43,11 +49,14 @@ const Youtube = (props) => {
 
         `;
 
-        const setMessage = "きりぬきあつめ　切り抜き動画をシェアしよう！";
+        // 共有した際にタイトルとして表示させるメッセージを定義
+        const setMessage = "切り抜き動画をシェアしよう！  #Vtuber切り抜き #きりぬきあつめ";
 
+        // dom生成
         return ( 
             <ModalWrap>
                 <VideoWrap>
+                    {/* URLを指定して、iframe内に埋め込む */}
                     <iframe 
                     id="ytplayer" 
                     type="ytplayer" 
@@ -58,6 +67,7 @@ const Youtube = (props) => {
                     />
                 </VideoWrap>
 
+                {/* 共有ボタンの生成 */}
                 <FacebookShareButton 
                     //フェイスブック
                     url={url}
@@ -99,6 +109,7 @@ const Youtube = (props) => {
     });
 
     return (
+        // 処理済みの動画をdomへ反映させる
         <div>
           {video}
         </div>
