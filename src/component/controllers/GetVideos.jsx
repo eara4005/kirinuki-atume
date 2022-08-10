@@ -13,7 +13,8 @@ const YOUTUBE_API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 const GetVideos = () => {
 
     // 取得したvideoを保持する配列 useStateフックで管理
-    const [videos, setVideos] = useState([]);
+    const [yt_videos, setYtVideos] = useState([]);
+    const [nc_videos, setNcVideos] = useState([]);
     // 検索キーワードを管理する状態変数 初期値:""
     const [keyword, setWords] = useState("");
     //　検索時に所属事務所を管理する状態関数 初期値 : にじさんじ
@@ -32,20 +33,32 @@ const GetVideos = () => {
     // keyword : 検索ワード
     // hako : vtuberの所属事務所の指定
     // param : 取得する動画の更新順を指定する
-    const onSearchYotube = (keyword,hako,param) =>{
-        const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${hako}+${keyword}+切り抜き&order=${param}&maxResults=10&key=${YOUTUBE_API_KEY}`;
+    const onSearchYotube = (keyword, hako, param) => {
+        // youtubeのエンドポイント
+        const yt_url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${hako}+${keyword}+切り抜き&order=${param}&maxResults=10&key=${YOUTUBE_API_KEY}`;
+
+        // niconicoのエンドポイント
+        const nc_url = `/api/v2/snapshot/video/contents/search?q=${hako}+${keyword}+切り抜き&targets=title,description,tags&fields=contentId,title,userId,thumbnailUrl&filters[tags][0]=${hako}&filters[tags][1]=切り抜き&_sort=-viewCounter&_context=kirinuki-atsume`;
+
 
         // axiosでYotubeAPIにリクエスト送信
+        // youtube
         axios
-            .get(url)
+            .get(nc_url)
             .then(res => {
                 // setStateフックでvideo配列に取得したitemsを入れる
-                setVideos(res.data.items);
+                setNcVideos(res.data.data);
+                return axios.get(yt_url); 
+            })
+            .then(res => {
+                setYtVideos(res.data.items);
             })
             // 通信失敗時の処理
             .catch(() =>{
                 alert("通信に失敗しました");
             });
+        
+        
     }
 
     // 検索ボタンを押した時の処理
@@ -118,7 +131,7 @@ const GetVideos = () => {
             </form>
 
             {/* ListVideosコンポーネント propsとして取得した動画要素の配列を渡す */}
-            <ListVideos videos={videos} />
+            <ListVideos youtube={yt_videos} ncnc={nc_videos} />
         </>
     );
 
