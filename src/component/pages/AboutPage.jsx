@@ -27,19 +27,6 @@ const ProductPage = () =>{
             </Paper>
 
             <Paper elevation={3} className={classes.paper}>
-                <h2>構成要素</h2>
-                <p>
-                    本アプリでは下記技術を用いており、
-                    各サービスの仕様変更ならびに障害発生時には、
-                    本アプリの提供・公開を中断する場合もございます。予めご了承下さい。
-                </p>
-                <ul>
-                    <li>React・axios・Material-UI</li>
-                    <li>Youtube Data API</li>
-                </ul>
-            </Paper>
-
-            <Paper elevation={3} className={classes.paper}>
                 <h2>本アプリの目的</h2>
                 <p>
                     切り抜きをもっと見やすく、快適なVtuberライフを送りたいがために作成しました。
@@ -57,19 +44,6 @@ const ProductPage = () =>{
                     <li><a href='https://qiita.com/rei67/items/25fa4a069157fd6c34b4'>React+Youtube APIについて</a></li>
                     <li><a href='https://blog.f-arts.work/archives/791'>Material-UIについて</a></li>
                 </ul>
-            </Paper>
-
-            <Paper elevation={3} className={classes.paper}>
-                <h2>自己紹介</h2>
-                <p>
-                    <a href='https://twitter.com/Shingo4005T'>@Shingo4005T</a><br/>
-                    <br/>
-                    モノを作る事が好き。専門学校に通ってる19歳です。<br/>
-                    webエンジニア目指して日々勉強とゲームにいそしんでいます。
-                    なんちゃってフルスタックエンジニアに
-                    なれたらいいな～と思ってたり、思っていなかったり。<br/>
-                    ご指摘・ご質問などは、<a href='https://twitter.com/Shingo4005T'>Twitter</a>までお願いします。
-                </p>
             </Paper>
             <br/>
         </Template>
