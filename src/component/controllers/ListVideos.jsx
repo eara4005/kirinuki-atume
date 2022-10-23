@@ -25,7 +25,7 @@ const ListVideos = (props) => {
       right: 0;
       margin: auto;
       width: 100%;
-      max-width: 196vw;
+      max-width: 345vw;
       padding: 10%;
       display: block;
       flex-direction: row;
