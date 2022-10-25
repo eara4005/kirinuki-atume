@@ -33,7 +33,7 @@ const GetVideos = () => {
     // hako : vtuberの所属事務所の指定
     // param : 取得する動画の更新順を指定する
     const onSearchYotube = (keyword,hako,param) =>{
-        const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${hako}+${keyword}+切り抜き&order=${param}&maxResults=10&key=${YOUTUBE_API_KEY}`;
+        const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${hako}+${keyword}+切り抜き&order=${param}&maxResults=30&key=${YOUTUBE_API_KEY}`;
 
         // axiosでYotubeAPIにリクエスト送信
         axios
